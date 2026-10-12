@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1020;
+    color: #eef2ff;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: #111831;
+    border-bottom: 1px solid #293452;
+}
+
+nav a {
+    color: #dce5ff;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+.brand {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 0;
+}
+
+.container {
+    width: min(1000px, 90%);
+    margin: 45px auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 7vw, 68px);
+    margin: 18px 0;
+}
+
+.hero p {
+    color: #aeb8d4;
+    font-size: 18px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #202b4d;
+    color: #9fb9ff;
+    font-size: 13px;
+}
+
+.actions {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #617df5;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.button.secondary {
+    background: #293452;
+}
+
+.button.danger {
+    background: #b94b61;
+}
+
+.button.small {
+    padding: 9px 12px;
+    font-size: 13px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card,
+.upload-card,
+.form-card,
+.file-card {
+    background: #121a31;
+    border: 1px solid #293452;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+.card p,
+small {
+    color: #aeb8d4;
+}
+
+.form-card {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[name="username"],
+input[type="file"] {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #394664;
+    background: #0c1327;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.file-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.file-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.file-actions form {
+    display: inline;
+}
+
+.messages {
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 13px 16px;
+    background: #1d2949;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 700px) {
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .file-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .file-actions {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        padding: 15px 5%;
+    }
+}

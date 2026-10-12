@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="top-row">
+
+    <div>
+
+        <span class="badge">
+            Logged in as {{ session['username'] }}
+        </span>
+
+        <h1>
+            Your Secure Files
+        </h1>
+
+        <p>
+            Files are encrypted before
+            they are stored.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="upload-card">
+
+    <h2>
+        Upload a File
+    </h2>
+
+    <form
+        action="{{ url_for('upload') }}"
+        method="post"
+        enctype="multipart/form-data">
+
+        <input
+            type="file"
+            name="file"
+            required
+        >
+
+        <button
+            class="button"
+            type="submit">
+
+            Encrypt & Upload
+
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="file-list">
+
+{% if files %}
+
+    {% for file in files %}
+
+    <div class="file-card">
+
+        <div>
+
+            <h3>
+                📄 {{ file['original_name'] }}
+            </h3>
+
+            <small>
+                Uploaded:
+                {{ file['uploaded_at'] }}
+                UTC
+            </small>
+
+        </div>
+
+
+        <div class="file-actions">
+
+            <a
+                class="button small"
+                href="{{ url_for(
+                    'download',
+                    file_id=file['id']
+                ) }}">
+
+                Download & Decrypt
+
+            </a>
+
+
+            <form
+                action="{{ url_for(
+                    'delete_file',
+                    file_id=file['id']
+                ) }}"
+                method="post">
+
+                <button
+                    class="button danger small"
+                    type="submit">
+
+                    Delete
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="card">
+
+        <p>
+            No files uploaded yet.
+        </p>
+
+    </div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}
+Secure Cloud Storage
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <span class="badge">
+        Hybrid Cryptography
+    </span>
+
+    <h1>
+        Secure File Storage System
+    </h1>
+
+    <p>
+        Store files securely using
+        AES-256 encryption and
+        RSA-2048 key protection.
+    </p>
+
+    <div class="actions">
+
+        <a class="button"
+           href="{{ url_for('register') }}">
+            Get Started
+        </a>
+
+        <a class="button secondary"
+           href="{{ url_for('login') }}">
+            Login
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+
+        <h3>⚡ AES-256</h3>
+
+        <p>
+            Fast symmetric encryption
+            protects the actual file contents.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>🔑 RSA-2048</h3>
+
+        <p>
+            Asymmetric encryption protects
+            the randomly generated AES key.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>☁️ Storage</h3>
+
+        <p>
+            Only encrypted files are stored
+            in the storage directory.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
